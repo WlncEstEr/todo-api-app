@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import { ItemFilms } from './components/ItemFilms'
+import { Spinner } from './components/UI/Spinner'
 import useApiById from './hooks/useApiById'
 
 function App() {
 	const [id, setId] = useState(0)
 
-	const { data } = useApiById(id)
-	console.log(data)
+	const { data, isError } = useApiById(id)
 	return (
 		<>
 			<section id="center">
@@ -20,11 +20,14 @@ function App() {
 						setId(Number(e.target.value))
 					}}
 				/>
+
+				{isError && <p>Произошла ошибка при загрузке данных.</p>}
+
 				{id !== 0 ? (
 					data ? (
 						<ItemFilms data={data} />
 					) : (
-						<p>Фильм не найден</p>
+						!isError && <Spinner />
 					)
 				) : (
 					<></>
