@@ -17,7 +17,9 @@ function App() {
 					placeholder="Введите id фильма от 300 до 2500"
 					className="border-b w-60 border-gray-700 text-sm py-1 my-3 focus:outline-none focus:border-blue-500 top-0"
 					onChange={e => {
-						setId(Number(e.target.value))
+						setTimeout(() => {
+							setId(Number(e.target.value))
+						}, 2000)
 					}}
 				/>
 
