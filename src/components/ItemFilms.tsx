@@ -15,12 +15,12 @@ export function ItemFilms({ data }: { data: IApiResponse }) {
 					{data?.countries?.map(country => country.name).join(', ')}
 				</p>
 				<p className="text-sm text-gray-500">{data?.description}</p>
-				<div className="flex flex-col gap-3">
+				<div className="flex flex-col ">
 					<p className="text-sm text-gray-500">
 						Rating: {data?.rating?.kp} / 10
-						<p className="text-sm text-gray-500">
-							IMDB: {data?.rating?.imdb} / 10
-						</p>
+					</p>
+					<p className="text-sm text-gray-500">
+						IMDB: {data?.rating?.imdb} / 10
 					</p>
 				</div>
 			</div>
